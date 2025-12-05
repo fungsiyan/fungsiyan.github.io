@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Tempus Sans ITC';
+  src: url('./res/fonts/tempsitc.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  /* touch-action: none; */
+}
+
+body {
+  /* background: #1b1a1a; */
+  /* color: #555; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* touch-action: none; */
+}
+
+canvas {
+  touch-action: none;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+nav {
+  float: left;
+  width: auto;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 10px;
+}
+
+section {
+  max-width: 800px;
+  margin: auto;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  padding: 5px;
+  font-size: 11.5px;
+  font-family: "Tempus Sans ITC", sans-serif;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+
+  nav,
+  article {
+    width: 100%;
+    height: auto;
+  }
+}
