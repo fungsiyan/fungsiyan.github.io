@@ -1,10 +1,11 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+
 var menu_directions = document.getElementById('directions');
 var uploader = document.getElementById('upload');
+
 var body = document.getElementById('body');
-var walking = false,
-    customGaniPersist = false;
+var walking, customGaniPersist = false;
 
 var convertedImage = new Image;
 
@@ -12,8 +13,8 @@ var initialized = false;
 var sprite = 0;
 
 var gani = {};
-gani.sprites = {};
-gani.dir = 2;
+    gani.sprites = {};
+    gani.dir = 2;
 
 var ox = (canvas.width - 48) / 2,
     oy = (canvas.height - 48) / 2,
@@ -32,9 +33,9 @@ var desiredFrameTick, lastTick, aniStepTime = 0;
 var defaultAnimations = [
     "default.gani", "walk.gani", "idle.gani", "carry.gani", "sword.gani", "sit.gani", "mount.gani", "pull.gani", "dead.gani"
 ];
-
 var cachedAnis = {};
 
+var defaultImage = {};
 var defaultImageSource = {
     "SPRITES": "res/images/sprites.png",
     "HEAD": "res/images/head0.png",
@@ -47,8 +48,9 @@ var defaultImageSource = {
     "SWORD": "res/images/sword1.png",
     "PARAM1": "res/images/null.png"
 };
-var visibleAttributes = ["SPRITES", "HEAD", "BODY", "ATTR1", "ATTR2", "ATTR4", "HORSE", "SHIELD", "SWORD", "PARAM1"];
-var defaultImage = {};
+var visibleAttributes = [
+    "SPRITES", "HEAD", "BODY", "ATTR1", "ATTR2", "ATTR4", "HORSE", "SHIELD", "SWORD", "PARAM1"
+];
 
 function preloadImages() {
     for (let i of Object.keys(defaultImageSource)) {
@@ -870,3 +872,13 @@ async function getServerGaniContent(file) {
         //console.error(err);
     }
 }
+
+const slider = document.querySelector('.theme input')
+const root = document.querySelector(':root')
+
+slider.addEventListener('input', () => {
+    const hue = slider.value
+
+    root.style.setProperty('--primary-color', `oklch(45.12% 0.267 ${hue})`)
+    root.style.setProperty('--secondary-color', `oklch(94.45% 0.03 ${hue})`)
+})
